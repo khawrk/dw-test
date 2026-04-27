@@ -52,20 +52,22 @@ export default function Sidebar({ role }: SidebarProps) {
             className={`sidebar-link ${pathname === link.href ? "active" : ""}`}
           >
             {link.icon}
-            {link.label}
+            <span className="sidebar-link-label">{link.label}</span>
           </Link>
         ))}
 
         <button type="button" className="sidebar-link" onClick={handleSwitch}>
           <RefreshCw size={16} />
-          {role === ROLE.admin ? "Switch to user" : "Switch to Admin"}
+          <span className="sidebar-link-label">
+            {role === ROLE.admin ? "Switch to user" : "Switch to Admin"}
+          </span>
         </button>
       </nav>
 
       <div className="sidebar-logout">
         <button type="button" className="sidebar-link" onClick={handleLogout}>
           <LogOut size={16} />
-          Logout
+          <span className="sidebar-link-label">Logout</span>
         </button>
       </div>
     </aside>
