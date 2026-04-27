@@ -33,13 +33,16 @@ export default function Sidebar({ role }: SidebarProps) {
 
   const userLinks = [
     { label: "Home", icon: <Home size={16} />, href: "/user/home" },
+    { label: "History", icon: <Inbox size={16} />, href: "/user/history" },
   ];
 
   const links = role === ROLE.admin ? adminLinks : userLinks;
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-title">{role === ROLE.admin ? "Admin" : "User"}</div>
+      <div className="sidebar-title">
+        {role === ROLE.admin ? "Admin" : "User"}
+      </div>
 
       <nav className="sidebar-nav">
         {links.map((link) => (
