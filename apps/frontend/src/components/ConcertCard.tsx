@@ -18,6 +18,8 @@ export default function ConcertCard({
   onReserve,
   onCancel,
 }: ConcertCardProps) {
+  const isFullyBooked = concert.reservedSeats >= concert.totalSeats;
+
   return (
     <div className="concert-card">
       <h3 className="concert-card-title">{concert.name}</h3>
@@ -48,6 +50,19 @@ export default function ConcertCard({
               onClick={() => onCancel?.(concert.id)}
             >
               Cancel
+            </button>
+          ) : isFullyBooked ? (
+            <button
+              className="btn btn-sm"
+              disabled
+              style={{
+                background: "var(--border)",
+                color: "var(--text-secondary)",
+                cursor: "not-allowed",
+                width: "auto",
+              }}
+            >
+              Fully Booked
             </button>
           ) : (
             <button
