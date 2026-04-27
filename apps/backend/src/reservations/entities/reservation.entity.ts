@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -10,6 +11,10 @@ import { Concert } from '../../concerts/entities/concert.entity';
 import { ReservationStatus } from '../../common/enums/reservation-status.enum';
 
 @Entity('reservations')
+@Index('UQ_active_reservation_user_concert', ['user', 'concert'], {
+  unique: true,
+  where: `"status" = 'ACTIVE'`,
+})
 export class Reservation {
   @PrimaryGeneratedColumn('uuid')
   id: string;
