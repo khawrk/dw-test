@@ -4,14 +4,12 @@ import {
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
-  Unique,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Concert } from '../../concerts/entities/concert.entity';
 import { ReservationStatus } from '../../common/enums/reservation-status.enum';
 
 @Entity('reservations')
-@Unique(['user', 'concert'])
 export class Reservation {
   @PrimaryGeneratedColumn('uuid')
   id: string;
