@@ -22,6 +22,7 @@ import { ReservationsModule } from './reservations/reservations.module';
         entities: [`${__dirname}/**/*.entity{.ts,.js}`],
         migrations: [`${__dirname}/migrations/*{.ts,.js}`],
         synchronize: false,
+        migrationsRun: true,
         logging: true,
       }),
       inject: [ConfigService],
