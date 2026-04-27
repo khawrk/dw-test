@@ -17,7 +17,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(dto: RegisterDto) {
+  async register(dto: RegisterDto, role: Role = Role.USER) {
     const existing = await this.usersService.findByEmail(dto.email);
     if (existing) throw new BadRequestException('Email already in use');
 
@@ -25,7 +25,7 @@ export class AuthService {
     const user = await this.usersService.create({
       email: dto.email,
       password: hashed,
-      role: Role.USER,
+      role,
     });
 
     return this.signToken(user.id, user.email, user.role);
