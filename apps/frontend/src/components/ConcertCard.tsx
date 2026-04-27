@@ -1,4 +1,4 @@
-import { Users } from "lucide-react";
+import { User, Trash2 } from "lucide-react";
 import { ROLE, type Concert, type Role } from "@/types";
 
 interface ConcertCardProps {
@@ -25,7 +25,7 @@ export default function ConcertCard({
       <p className="concert-card-description">{concert.description}</p>
       <div className="concert-card-footer">
         <span className="concert-card-seats">
-          <Users size={16} />
+          <User size={16} />
           {concert.totalSeats.toLocaleString()}
         </span>
 
@@ -35,7 +35,8 @@ export default function ConcertCard({
             className="btn btn-red btn-sm"
             onClick={() => onDelete?.(concert)}
           >
-            🗑 Delete
+            <Trash2 size={14} />
+            Delete
           </button>
         )}
 

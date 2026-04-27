@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Save, Users } from "lucide-react";
+import { Save, User, Award } from "lucide-react";
 import { toast } from "sonner";
 import api from "@/lib/api";
 import Sidebar from "@/components/Sidebar";
@@ -95,26 +95,13 @@ export default function AdminHomePage() {
             label="Total of seats"
             value={totalSeats}
             variant="blue"
-            icon={<Users size={28} />}
+            icon={<User size={28} />}
           />
           <StatCard
             label="Reserve"
             value={totalReserved}
             variant="teal"
-            icon={
-              <svg
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <title>Reserve icon</title>
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
-            }
+            icon={<Award size={28} />}
           />
           <StatCard
             label="Cancel"
@@ -196,18 +183,21 @@ export default function AdminHomePage() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="totalSeat">Total of seat</label>
-                  <input
-                    name="totalSeat"
-                    className="create-form-input"
-                    type="number"
-                    placeholder="500"
-                    min={1}
-                    value={form.totalSeats}
-                    onChange={(e) =>
-                      setForm({ ...form, totalSeats: e.target.value })
-                    }
-                    required
-                  />
+                  <div className="create-form-input-with-icon">
+                    <input
+                      name="totalSeat"
+                      className="create-form-input"
+                      type="number"
+                      placeholder="500"
+                      min={1}
+                      value={form.totalSeats}
+                      onChange={(e) =>
+                        setForm({ ...form, totalSeats: e.target.value })
+                      }
+                      required
+                    />
+                    <User size={16} aria-hidden="true" />
+                  </div>
                 </div>
               </div>
 
