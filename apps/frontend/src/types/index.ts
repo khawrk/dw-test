@@ -1,8 +1,15 @@
 export interface User {
   userId: string;
   email: string;
-  role: "USER" | "ADMIN";
+  role: Role;
 }
+
+export const ROLE = {
+  admin: "ADMIN",
+  user: "USER",
+} as const;
+
+export type Role = (typeof ROLE)[keyof typeof ROLE];
 
 export interface Concert {
   id: string;
