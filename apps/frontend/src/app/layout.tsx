@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Toaster position="top-right" richColors />
+        <Toaster position="top-right" richColors closeButton />
         {children}
       </body>
     </html>

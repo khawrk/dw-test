@@ -443,6 +443,23 @@ body {
   border-color: var(--primary);
 }
 
+.create-form-input-with-icon {
+  position: relative;
+}
+
+.create-form-input-with-icon .create-form-input {
+  padding-right: 2.25rem;
+}
+
+.create-form-input-with-icon svg {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
 .create-form-textarea {
   width: 100%;
   padding: 0.65rem 0.75rem;
@@ -471,29 +488,31 @@ body {
   width: 100%;
   border-collapse: collapse;
   background: var(--card-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
 }
 
 .history-table th {
-  background: #f9fafb;
   padding: 0.85rem 1rem;
   text-align: left;
   font-size: 0.875rem;
   font-weight: 600;
-  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
 }
 
 .history-table td {
   padding: 0.85rem 1rem;
   font-size: 0.875rem;
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
   color: var(--text-secondary);
 }
 
+.history-table tr:hover td {
+  background-color: #fafafa;
+}
+
 .history-table tr:last-child td {
-  border-bottom: none;
+  border-bottom: 1px solid var(--border);
 }
 
 .history-table tr:hover td {
@@ -730,4 +749,15 @@ body {
   .create-form-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Toast overriding sonner */
+[data-sonner-toast] [data-close-button] {
+  position: absolute !important;
+  right: 0.75rem !important;
+  left: auto !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: transparent !important;
+  border: none !important;
 }
