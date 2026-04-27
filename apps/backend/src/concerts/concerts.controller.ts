@@ -32,7 +32,7 @@ export class ConcertsController {
   }
 
   @Get()
-  @Roles(Role.USER)
+  @Roles(Role.USER, Role.ADMIN)
   findAll() {
     return this.concertsService.findAll();
   }
